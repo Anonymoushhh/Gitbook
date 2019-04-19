@@ -38,8 +38,10 @@
 	+ SequenceUtil.java
 	+ SerializeUtil.java
 	+ Server.java
+	
 ###MyMQ使用指南
-表头|表头
+####Broker
+Method|Description
 ---|:--:
 内容|内容
 内容|内容
