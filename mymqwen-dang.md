@@ -114,3 +114,31 @@ public Message(String s,Topic topic,int num)|构造方法，输入为消息内�
 public Message(String s,int type,int num)|构造方法，输入为消息内容，消息类型，消息序号
 public Message(String s,int type,Topic topic,int num)|构造方法，输入为消息内容，消息类型，消息主题，消息序号
 public String getMessage()|返回消息内容
+public int getType()|返回消息类型
+public void setType(int type)|设置消息类型，若类型不存在，设置为默认值1
+public Topic getTopic()|返回消息主题
+public void setTopic(Topic topic)|设置消息主题
+public int getNum()|返回消息序号
+public void setNum(int num)|设置消息序号
+####Common.MessageType
+Method|Description
+---|:--:
+private static Set<Integer> getSet()|返回消息类型集合
+public static boolean contains(Integer i)|判断类型是否合法
+####Common.PullMessage
+Method|Description
+---|:--:
+public PullMessage(IpNode ipNode,String message,int num)|构造方法，构造一个请求拉取消息的消息
+public IpNode getIpNode()|获得地址信息
+public int getNum()|获得消息序号
+public int getType()|获得消息类型
+public String getMessage()|获得消息内容
+####Common.RegisterMessage
+Method|Description
+---|:--:
+public RegisterMessage(IpNode ipNode,String message,int num)|构造方法，构造一个Consumer注册消息
+public IpNode getIpNode()|返回地址信息
+public int getNum()|返回消息序号
+public int getType()|返回消息类型
+public String getMessage()|返回消息内容
+
