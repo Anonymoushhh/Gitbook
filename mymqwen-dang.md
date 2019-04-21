@@ -183,6 +183,47 @@ API同SyscProducerFactory
 ####Utils.Client
 Method|Description
 ---|:--:
-
-
-
+public Client(String ip,int port)|构造方法，输入为目标地址
+private void init(String ip,int port)|Client初始化
+public String SyscSend(String msg)|同步发送字符串消息
+public void Send(String msg)|单向发送字符串
+public String SyscSend(Message msg)|同步发送消息对象
+public void Send(Message msg)|单向发送消息对象
+public String receive()|接受消息
+####Utils.DefaultRequestProcessor
+Method|Description
+---|:--:
+public void processorRequest(final SelectionKey key,Server server)|默认的请求处理方法
+####Utils.DefaultResponeProcessor
+Method|Description
+---|:--:
+public void processorRespone(final SelectionKey key)|默认的请求响应方法
+####Utils.RequestProcessor接口
+Method|Description
+---|:--:
+public void processorRequest(final SelectionKey key,Server server)|消息处理方法
+####Utils.ResponseProcessor接口
+Method|Description
+---|:--:
+default void processorRespone(final SelectionKey key)|默认空实现，为实现接口的类服务
+default void processorRespone(final SelectionKey key,Broker broker)|默认空实现，为实现接口的类服务
+default void processorRespone(final SelectionKey key,int port)|默认空实现，为实现接口的类服务
+default void processorRespone(final SelectionKey key,Slave slave)|默认空实现，为实现接口的类服务
+####Utils.SequenceUtil
+Method|Description
+---|:--:
+public synchronized int getSequence()|返回一个全局唯一的序列化（单机环境下唯一）
+####Utils.SerializeUtil
+Method|Description
+---|:--:
+public static String serialize(Object obj)|对象序列化为字符串
+public static Object serializeToObject(String str)|字符串反序列化为对象
+####Utils.Server
+Method|Description
+---|:--:
+public Server(int port,RequestProcessor requestProcessor,ResponseProcessor responeProcessor)|构造方法，创建一个服务端对象
+public Server(int port,RequestProcessor requestProcessor,ResponseProcessor responeProcessor,Broker broker)|构造方法，创建一个服务端对象，并为某个Broker服务
+public Server(int port,RequestProcessor requestProcessor,ResponseProcessor responeProcessor,Slave slave)|构造方法，创建一个服务端对象，并为某个Slave服务
+public void addWriteQueen(SelectionKey key)|添加SelectionKey到队列
+void init(int port)|在某个端口上创建Server服务，初始化Server
+void start(int port)|在某个端口上开始监听
