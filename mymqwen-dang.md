@@ -65,6 +65,7 @@ public HashMap<IpNode, List<Message>> filter(List<IpNode> index,List<Message> li
 Method|Description
 ---|:--:
 public void processorRespone(final SelectionKey key,Broker broker)|根据不同的消息类型做出不同的反应
+private void addToBroker(Message msg,Broker broker)|将消息添加到Broker
 ####Broker.Filter
 Method|Description
 ---|:--:
@@ -141,4 +142,47 @@ public IpNode getIpNode()|返回地址信息
 public int getNum()|返回消息序号
 public int getType()|返回消息类型
 public String getMessage()|返回消息内容
+####Common.Topic
+Method|Description
+---|:--:
+public Topic(String s,int queueNum)|构造方法，输入为主题内容，请求队列数
+public Topic(String s,HashSet<Integer> queueId,HashSet<IpNode> consumer_address)|构造方法，输入为主题内容，请求队列集合，消费者集合
+private List<IpNode> transform(HashSet<IpNode> set)|HashSet元素转换为线性表
+private List<Integer> transformforInteger(HashSet<Integer> set)|同上
+public String getTopicName()|获得主题名字
+public List<Integer> getQueue()|获得队列编号
+public List<IpNode> getConsumer()|获得消费者列表
+public void addConsumer(IpNode ipnode)|添加消费者
+public void deleteConsumer(IpNode ipnode)|删除消费者
+public void addQueueId(int i)|添加队列
+public int getQueueNum()|获得请求队列数
+####Consumer.ConsumerFactory
+Method|Description
+---|:--:
+private static void register(IpNode ipNode1,IpNode ipNode2)|消费者向Broker注册，输入为目的地址，本地地址
+private static void waiting(int port)|消费者在某个端口监听消息
+public static void createConsumer(IpNode ipNode1,IpNode ipNode2)|向Broker申请创建消费者
+public static ConcurrentLinkedQueue<Message> getList(int port)|返回某个在某个端口监听的消息队列
+public static Message getMessage(int port)|返回在某个端口的消息
+public static void Pull(IpNode ipNode1,IpNode ipNode2)|请求拉取消息
+####Consumer.ConsumerResponeProcessor
+public void processorRespone(final SelectionKey key,int port)|消费者对消息的监听处理方法
+####Producer.SyscProducerFactory
+Method|Description
+---|:--:
+public static void setReTry_Time(int reTry_Time)|设置重试次数
+private static String SendQueueRegister(Message msg,String ip,int port)|发送队列注册消息，失败返回null，成功返回 RequestQueue ACK
+public static Topic RequestQueue(Topic topic,String ip,int port)|请求申请队列，输入为一个topic和目的地址，里面包含请求的队列个数
+public static String Send(Message msg,String ip,int port)|发送消息
+####Producer.DelaySyscProducerFactory
+Method|Description
+---|:--:
+public static void setDelay_Time(int delay_Time)|设置延时发送时间，其余方法同上
+####Producer.UndirectionalProducerFactory
+API同SyscProducerFactory
+####Utils.Client
+Method|Description
+---|:--:
+
+
 
