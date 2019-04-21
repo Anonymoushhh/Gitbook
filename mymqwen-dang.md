@@ -250,11 +250,17 @@ void start(int port)|在某个端口上开始监听
 
 
 ```
-files = os.listdir(".") 
-for filename in files: 
+	files = os.listdir(".") 
+	for filename in files: 
     pos = filename.find("."); 
     if filename[pos+1:] == 'html': 
         newname = filename[:pos+1] + 'htm' 
         os.rename(filename,newname)
+```
+
+
+
+```
+
 ```
 
