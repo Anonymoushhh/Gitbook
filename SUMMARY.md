@@ -1,14 +1,10 @@
 # Summary
 
 * [0、引言](README.md)
-* [1、工具安装](chapter1.md)
-  * [1.1 环境1工具安装](chapter1/section1.md)
-* [2、写书过程](chapter2.md)
-  * [RocketMQ](chapter2/duo-ren-xie-zuo-xie-shu-guo-cheng.md)
-  * [文档](chapter2/wen-dang.md)
-* [3、进一步的功能](chapter3.md)
-* [4、附录](chapter4.md)
-  * 4.1 Git相关命令
-  * 4.2 Github操作指南
-* [MyMQ文档](mymqwen-dang.md)
+* [RocketMQ](chapter2/duo-ren-xie-zuo-xie-shu-guo-cheng.md)
+* [一个简单的MQ——MyMQ](chapter1.md)
+  * [整体架构](chapter1/zheng-ti-jia-gou.md)
+  * [使用文档](chapter1/mymqshi-yong-wen-dang.md)
+  * [使用示例](chapter1/mymqshi-yong-shi-li.md)
+  * [主要架构与功能实现详解](chapter1/zhu-yao-jia-gou-yu-gong-neng-shi-xian-xiang-jie.md)
 
