@@ -492,7 +492,7 @@ public HashMap<IpNode, List<Message>> filter(List<Message> list) {
 ```
 &emsp;&emsp;过滤器的主要作用就是将要发送的消息按照消费者地址分类，一个消息可能有一个或多个消费者。
 
-####消息纷发（Push模式与Pull模式）
+####消息分发（Push模式与Pull模式）
 ```
 //为消费者推送消息
 	private void pushMessage() {
