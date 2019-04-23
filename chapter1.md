@@ -49,6 +49,7 @@
 	+ DaoTest.java
 	+ BrokerTest.java
 	+ ProducerTest.java
+	+ PressTest.java
 
 &emsp;&emsp;测试包，里面包含了MyMQ的基本使用方法。
 
@@ -69,7 +70,7 @@
 
 ###MyMQ使用指南
 ####Broker.Broker
-&emsp;&emsp;Broker为消息队列服务器节点，提供的服务有：消息存储，消息纷发（Push模式与Pull模式），失败重试机制，消息过滤，负载均衡，死信队列，主从备份，持久化存储（同步或异步刷盘）与冗机恢复，横向扩展等。
+&emsp;&emsp;Broker为消息队列服务器节点，提供的服务有：消息存储，消息分发（Push模式与Pull模式），失败重试机制，消息过滤，负载均衡，死信队列，主从备份，持久化存储（同步或异步刷盘）与冗机恢复，横向扩展等。
 
 Method|Description
 ---|:--:
@@ -322,7 +323,8 @@ SequenceUtil Sequence = new SequenceUtil();//新建一个序列号工具类实�
 //创建一个消息主题Topic（包含Topic名称和请求队列个数）向Broker请求分配队列，
 
 //同步消息示例
-Topic topic = SyscProducerFactory.RequestQueue(new Topic("topic",1)/*请求队列的Topic*/, "127.0.0.1", 81);//返回值为一个新的Topic，里面包含了分配的队列编号
+//返回值为一个新的Topic，里面包含了分配的队列编号
+Topic topic = SyscProducerFactory.RequestQueue(new Topic("topic",1)/*请求队列的Topic*/, "127.0.0.1", 81);
 //为消息主题添加消费者地址
 topic.addConsumer(new IpNode("127.0.0.1", 8888));
 int num = Sequence.getSequence();//获得全局唯一的序号
@@ -363,13 +365,18 @@ try {
 ```
 ```
 //创建Broker(非主从复制，push模式)
-	try {
-		Broker broker = new Broker(81);//创建Broker，在81端口监听
-		broker.setPush_Time(1000);
-		broker.push();
-		} catch (IOException e) {
-			e.printStackTrace();
-	}
+		//Broker(非主从复制)
+				try {
+					Broker broker = new Broker(81);
+					broker.setPush_Time(1000);
+					broker.setReTry_Time(16);
+					broker.setSync_Time(1000);
+					broker.setStore_Time(1000);
+					broker.setStartPersistence(true);
+					broker.push();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 ```
 ```
 //创建Broker(非主从复制,pull模式)
@@ -407,8 +414,6 @@ Consumer
     	try {
 			ConsumerFactory.createConsumer(ipNode3, ipNode4);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-//			e.printStackTrace();
 			System.out.println("Broker未上线！");
 		}
 		while(true) {
