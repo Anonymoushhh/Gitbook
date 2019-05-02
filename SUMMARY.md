@@ -1,7 +1,6 @@
 # Summary
 
 * [0、引言](README.md)
-* [RocketMQ](rocketmq.md)
 * [白话讲RocketMQ](chapter2/duo-ren-xie-zuo-xie-shu-guo-cheng.md)
   * [工作流程](chapter2/duo-ren-xie-zuo-xie-shu-guo-cheng/gong-zuo-liu-cheng.md)
   * [功能实现](chapter2/duo-ren-xie-zuo-xie-shu-guo-cheng/gong-neng-shi-xian.md)
@@ -10,4 +9,6 @@
   * [使用文档](chapter1/mymqshi-yong-wen-dang.md)
   * [使用示例](chapter1/mymqshi-yong-shi-li.md)
   * [主要架构与功能实现详解](chapter1/zhu-yao-jia-gou-yu-gong-neng-shi-xian-xiang-jie.md)
+* [RocketMQ高级特性讲解与应用](rocketmq.md)
+  * 如何支持分布式事务？
 
