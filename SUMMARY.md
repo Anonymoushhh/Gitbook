@@ -1,7 +1,8 @@
 # Summary
 
 * [0、引言](README.md)
-* [RocketMQ](chapter2/duo-ren-xie-zuo-xie-shu-guo-cheng.md)
+* [RocketMQ](rocketmq.md)
+* [白话讲RocketMQ](chapter2/duo-ren-xie-zuo-xie-shu-guo-cheng.md)
   * [工作流程](chapter2/duo-ren-xie-zuo-xie-shu-guo-cheng/gong-zuo-liu-cheng.md)
   * [功能实现](chapter2/duo-ren-xie-zuo-xie-shu-guo-cheng/gong-neng-shi-xian.md)
 * [一个简单的MQ——MyMQ](chapter1.md)
