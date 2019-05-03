@@ -18,7 +18,7 @@ CommitLog的消息存储单元长度不固定，文件顺序写，随机读。�
 ![](/assets/3.png)
 3、消息的索引文件
 如果一个消息包含key值的话，会使用IndexFile存储消息索引，文件的内容结构如图：
-![](/assets/20180730092604373.png)
+![](/assets/4.png)
 &emsp;&emsp;索引文件主要用于根据key来查询消息的，流程主要是：
 &emsp;&emsp;根据查询的 key 的 hashcode%slotNum 得到具体的槽的位置(slotNum 是一个索引文件里面包含的最大槽的数目，例如图中所示 slotNum=5000000)
 &emsp;&emsp;根据 slotValue(slot 位置对应的值)查找到索引项列表的最后一项(倒序排列,slotValue 总是指向最新的一个索引项)
