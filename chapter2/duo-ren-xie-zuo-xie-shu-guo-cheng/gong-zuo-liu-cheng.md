@@ -1,6 +1,6 @@
 ## 工作流程
 
-![](/assets/import.png)
+![](/assets/jiagou.png)
 
 ### NameServer Cluster：名称服务集群。
 &emsp;&emsp;它就是一个服务注册中心。NameServer就类似于商场中的商品查询机器，它里面存储着所有商品的分类，每个分类所在的货架号等信息。
