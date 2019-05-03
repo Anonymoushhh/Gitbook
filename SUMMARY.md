@@ -13,4 +13,5 @@
   * [如何支持分布式事务？](rocketmq/ru-he-zhi-chi-fen-bu-shi-shi-wu-ff1f.md)
   * [如何实现消息存储？](rocketmq/ru-he-shi-xian-xiao-xi-cun-chu-ff1f.md)
   * [基于Netty的通信实现](1.md)
+* [参考资料](can-kao-zi-liao.md)
 
